@@ -10,6 +10,7 @@ import sys
 
 # import some PyQt5 modules
 from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QImage
 from PyQt5.QtGui import QPixmap
@@ -29,7 +30,10 @@ class MainWindow(QWidget):
         self.ui.setupUi(self)
 
         # load face cascade classifier
-        self.face_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_frontalface_alt.xml')
+        self.face_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_frontalface_altt.xml')
+        if self.face_cascade.empty():
+            QMessageBox.information(self, "Error Loading cascade classifier" , "Unable to load the face	cascade classifier xml file")
+            sys.exit()
 
         # create a timer
         self.timer = QTimer()
