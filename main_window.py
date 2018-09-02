@@ -30,7 +30,7 @@ class MainWindow(QWidget):
         self.ui.setupUi(self)
 
         # load face cascade classifier
-        self.face_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_frontalface_altt.xml')
+        self.face_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_frontalface_alt.xml')
         if self.face_cascade.empty():
             QMessageBox.information(self, "Error Loading cascade classifier" , "Unable to load the face	cascade classifier xml file")
             sys.exit()
